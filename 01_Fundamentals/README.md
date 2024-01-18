@@ -37,16 +37,18 @@ Decimal | Binary | Octal | HexaDecimal
 
 ### Low-level, High-Level & Hybrid Languages
 
-- #### Low level language
+- #### Low level language :
     - Machine Language (Binary)
     - Assembly
 
-- #### High level languages : C, C++, Java, Python, C#, etc
+- #### High level languages :
+    - C, C++, Java, Python, C#, etc
     - Compiler bases languages : C++
     - Interpreter based languages : Javascript
     - Hybrid languages
 
-- #### Hybrid Languages : Java, dot net languages - C#
+- #### Hybrid Languages :
+    - Java, dot net languages - C#
     - They have both compiler and interpreter.
     - It's 2 step stages.
     - Compiler just  check for error, not generate machine code, it's just byte code. JVM (interpreter) will generate machine code and also execute.
@@ -55,13 +57,13 @@ Decimal | Binary | Octal | HexaDecimal
 
 ### Compiler vs Interpreter
 
-- #### Compiler
+- #### Compiler :
     - Compiler converts source code to machine code (only if no error).
     - Generate executable file.
     - For running program we don’t require compiler.
     - Compiler programs are faster, run independently.
 
-- #### Interpreter
+- #### Interpreter :
     - Chrome works is an interpreter for java script.
 	- Chrome translate one line and execute it also.
 	- Line by line translation as well execution.
@@ -75,3 +77,50 @@ Decimal | Binary | Octal | HexaDecimal
 
 
 # Program Development
+
+### Programming Paradigm
+
+- There are many type of Programming Paradigm, like Imperative, procedural, functional, declarative, object oriented, etc.
+
+<img src="programming_paradigm.png" alt = "Programming Paradigm" width="700/">
+
+### Flow Chart
+
+- A flowchart is a type of diagram that represents a workflow or process.
+- A flowchart can also be defined as a diagrammatic representation of an algorithm.
+- It's a step-by-step approach to solving a task.
+- Example :
+
+<img src="flow_chart.png" alt = "Flow Chart" width="400/">
+
+### Steps for Program Development and Execution
+
+- Coding/Editing
+- Compiling
+- Linking Library (Header Files)
+- Loading (Bringing program from hard disk to main memory)
+- Execution
+
+### Main Memory divided into 4 sections
+
+- #### Stack :
+    - Used to store local variables and function call information
+    - Each function call creates a new stack frame, and local variables are allocated within that frame.
+    - Memory allocated on the stack is automatically reclaimed when a function exits.
+
+- #### Heap :
+    - Used for dynamic memory allocation
+    - Memory allocated on the heap persists until explicitly deallocated by the programmer.
+
+- #### Code Section (Text Section) :
+    - Machine code copied into code section.
+    - Holds the executable code of a program.
+
+- #### Data Section :
+    - Contains global and static variables used by the program
+    - **Initialized Data Section :**
+        - Holds initialized global and static variables.
+        - The values of these variables are set at compile time.
+    - **Uninitialized Data Section :**
+        - Holds uninitialized global and static variables.
+        - The values of these variables are initialized to zero during program startup.
