@@ -121,6 +121,12 @@ Decimal | Binary | Octal | HexaDecimal
     - **Initialized Data Section :**
         - Holds initialized global and static variables.
         - The values of these variables are set at compile time.
-    - **Uninitialized Data Section :**
+    - **Uninitialized Data Section (BSS - Block Started by Symbol) :**
         - Holds uninitialized global and static variables.
         - The values of these variables are initialized to zero during program startup.
+    ```cpp
+    int initializedVariable = 42;   // Goes to the Initialized Data Section
+    int uninitializedVariable;      // Goes to the BSS Section
+     ```
+
+<img src="main_memory.png" alt="Main Memory" width="400">
