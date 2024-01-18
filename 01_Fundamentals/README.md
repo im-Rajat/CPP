@@ -3,7 +3,7 @@
 ### How Computer Works
 Computer works on binary number system. Because it's based on electronic, and in electronic, signals are low or high which means 0 or 1.
 
-<img src="block_diagram.png" alt="Block Diagram" width="500"/>
+<img src="images/block_diagram.png" alt="Block Diagram" width="500"/>
 
 ### Number Systems
 - Binary = {0, 1}
@@ -73,7 +73,7 @@ Decimal | Binary | Octal | HexaDecimal
 
 ### Operating System : A Master Program
 
-<img src="operating_system.png" alt="Operating System" width="700"/>
+<img src="images/operating_system.png" alt="Operating System" width="700"/>
 
 
 # Program Development
@@ -82,7 +82,7 @@ Decimal | Binary | Octal | HexaDecimal
 
 - There are many type of Programming Paradigm, like Imperative, procedural, functional, declarative, object oriented, etc.
 
-<img src="programming_paradigm.png" alt = "Programming Paradigm" width="700/">
+<img src="images/programming_paradigm.png" alt = "Programming Paradigm" width="700/">
 
 ### Flow Chart
 
@@ -91,7 +91,7 @@ Decimal | Binary | Octal | HexaDecimal
 - It's a step-by-step approach to solving a task.
 - Example :
 
-<img src="flow_chart.png" alt = "Flow Chart" width="400/">
+<img src="images/flow_chart.png" alt = "Flow Chart" width="400/">
 
 ### Steps for Program Development and Execution
 
@@ -129,4 +129,4 @@ Decimal | Binary | Octal | HexaDecimal
     int uninitializedVariable;      // Goes to the BSS Section
      ```
 
-<img src="main_memory.png" alt="Main Memory" width="400">
+<img src="images/main_memory.png" alt="Main Memory" width="400">
