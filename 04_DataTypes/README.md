@@ -11,6 +11,9 @@
     - `float pi = 3.14;`
 - **double :** Used for storing double-precision floating-point values & size is 8 bytes.
     - `double salary = 250000.75;`
+    - **Scientific Numbers :** A floating point number can also be a scientific number with an "e" to indicate the power of 10:
+    - `float f1 = 35e3;`
+    - `double d1 = 12E4;`
 - **void (valueless) :**  Represents a valueless entity & used for those function which does not return a value.
 - **Wide Character :**  A character data type but has a size greater than the normal 8-bit data type. Represented by `wchar_t`. It is generally 2 or 4 bytes long.
     - `wchar_t test = L'ם'  // storing Hebrew character;` 
