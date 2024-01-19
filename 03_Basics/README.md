@@ -73,15 +73,3 @@ int main() {
     cout << "Your number is: " << x; // Display the input value
     ```
 - `cout` is pronounced "see-out". Used for output, and uses the insertion operator `(<<)`
-
-### Operators
-
-- Operators are used to perform operations on variables and values.
-- We use `+` operator to add together two values : `int x = 100 + 50;`
-- C++ divides the operators into the 5 groups :
-
-#### Arithmetic operators :
-#### Assignment operators :
-#### Comparison operators :
-#### Logical operators :
-#### Bitwise operators :
