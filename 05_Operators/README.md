@@ -9,6 +9,22 @@
 - Used to perform common mathematical operations.
 - `+, -, *, /, %, ++, --`
 - Addition, Subtraction, Multiplication, Division, Modulus, Increment, Decrement
+  
+    #### Increment/Decrement Operator :
+    - The increment operator adds 1 to the current value of the variable.
+    - The decrement operator subtract 1 to the current value of the variable.
+    - It can be used in both postfix and prefix forms.
+    
+    #### Postfix (variable++) & Prefix (++variable) increment :
+    ```cpp
+    int x = 2;
+    int resultX = x++;  // Postfix increment
+    cout << x << ", " << resultX << endl;    // Now, x is 3, and resultX is 2
+
+    int y = 5;
+    int resultY = ++y;  // Prefix increment
+    cout << y << ", " << resultY << endl;    // Now, x is 6, and resultY is 6
+    ```
 
 ### Assignment operators
 
@@ -36,4 +52,8 @@
 - These logical operators can be combined to create more complex logical expressions.
 
 ### Bitwise operators
+
+
+
+### Operator Precedence
 
