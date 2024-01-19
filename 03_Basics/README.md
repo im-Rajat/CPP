@@ -33,6 +33,7 @@ int main() {
         - `double salary = 250000.75;`
     - **void (valueless) :**  Represents a valueless entity & used for those function which does not return a value.
     - **Wide Character :**  A character data type but has a size greater than the normal 8-bit data type. Represented by `wchar_t`. It is generally 2 or 4 bytes long.
+        - `wchar_t test = L'ם'  // storing Hebrew character;` 
 
 - #### Derived :
     - **Arrays :** Collections of elements of the same data type.
@@ -84,6 +85,8 @@ int main() {
         ```cpp
         enum Color { RED, GREEN, BLUE };
         Color myColor = BLUE;
+
+        enum day {mon=1, tues, wed, thurs, fri, sat, sun}
         ```
     - **Typedef defined :** A keyword used to create an alias for a data type. It allows you to define a new name for an existing type, making your code more readable and providing a level of abstraction
         ```cpp
