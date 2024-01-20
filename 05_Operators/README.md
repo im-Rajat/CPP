@@ -19,6 +19,7 @@
     - It can be used in both postfix and prefix forms.
     
     #### Postfix (variable++) & Prefix (++variable) increment :
+    postfix_operators.cpp
     ```cpp
     int x = 2;
     int resultX = x++;  // Postfix increment
@@ -92,9 +93,10 @@
         - In an arithmetic shift, the sign bit (the leftmost bit) is used to fill the vacant positions created by the shift.
         - If the sign bit is 1 (indicating a negative number), it will be replicated to fill the empty positions.
         - `int num = -8;  // Binary: ...1111111111111000`
-        - `int result = num >> 1;  // Result: ...1111111111111100 (sign bit replicated)`
+        - `int result = num >> 1;  // Result: ...1111111111111100 (sign bit replicated)` 
     
-    ```cpp
+    bitwise_operator.cpp :
+    ```cpp 
     unsigned int a = 5;  // Binary: 0101
     unsigned int b = 3;  // Binary: 0011
 
@@ -129,3 +131,8 @@
 - If two operators have the same precedence, their associativity (left-to-right or right-to-left) determines the order of evaluation.
 
     <img src="images/operator_precedence_associativity.png" alt="Main Memory" width="350">
+
+
+#### References :
+
+- https://www.prepbytes.com/blog/cpp-programming/cpp-operator-precedence/
