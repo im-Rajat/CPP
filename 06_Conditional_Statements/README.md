@@ -34,9 +34,9 @@
 - And execute the corresponding block of code for the first true condition.
     ```cpp
     if (condition1 && condition2) {
-        // Code to be executed if condition1 is true
+        // Code to be executed if both condition1 and condition2 are true
     } else if (condition1 || condition2) {
-        // Code to be executed if condition2 is true
+        // Code to be executed if either condition1 or condition1 is true
     } else {
         // Code to be executed if none of the conditions is true
     }
