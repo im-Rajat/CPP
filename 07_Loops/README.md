@@ -1,6 +1,6 @@
 # Loops
 
-- If we need to output something 10 time, we need to write that same thing again & again ten times. Here Loops make things easier for us.
+- If we need to output something 10 times, we need to write that same thing again & again 10 times. Here Loops make things easier for us.
 
     ```cpp
     // without loop
@@ -35,8 +35,6 @@
 ### for loop
 
 - The `for` loop is generally used when the number of iterations is known in advance.
-- For Loop Flow Chart :  
-<img src = images/for_loop_flowchart.jpg alt="For Loop Flow Chart" width="400">
 
     ```cpp
     for (initialization; condition; update) {
@@ -51,6 +49,11 @@
         // code
     }
     ```
+    
+- For Loop Flow Chart :  
+<img src = images/for_loop_flowchart.jpg alt="For Loop Flow Chart" width="400">
+
+
 - For loop is a counter-controlled loop.
 - Usually for loop is written with counter. `for(int i = 0; i < n; i++)` here i is a counter
 - for loop can be written like this for(;;)
@@ -58,8 +61,6 @@
 ### while loop
 
 - The `while` loop is generally used when the number of iterations is not known in advance, and it continues to execute as long as a specified condition is true.
-- While & Do-While Loop Flow Chart :  
-<img src = images/while_do_while_flowchart.jpg alt="For Loop Flow Chart" width="400">
 
     ```cpp
     initialization expression;
@@ -74,6 +75,9 @@
         ++i;
     }
     ```
+
+- While & Do-While Loop Flow Chart :  
+<img src = images/while_do_while_flowchart.jpg alt="For Loop Flow Chart" width="400">
 
 ###  do-while loop
 
