@@ -201,9 +201,3 @@ for (int i : anotherArray) {
     int value = stdArray[2];    // Retrieves the element at index 2
     int value2 = stlArray.at(0);    // Retrieves the element at index 0
     ```
-
-
-
-### Extras :
-
-- We can use exit(0); for termination of program.
