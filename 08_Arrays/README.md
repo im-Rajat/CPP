@@ -89,6 +89,16 @@ for (int i : anotherArray) {
             { "G", "H" }
         }
     };
+
+    // array_2d.cpp : We can define 2D array like this also :
+    int a[][3] = { {1, 2, 3}, {2, 3, 5}, {5, 6, 7}};
+    
+    for (auto &i : a) {
+        for (auto j : i) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
     ```
 
 - 2D array representation in memory :  
