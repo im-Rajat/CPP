@@ -63,6 +63,116 @@ for (int i : anotherArray) {
 
 ## Multidimensional Arrays:
 
+- A multi-dimensional array is an array of arrays, where each element of the array is itself an array.
+-  We can have 2-Dimensional arrays, 3-Dimensional arrays, and so on.
+-  To declare a multi-dimensional array,
+    - define the variable type,
+    - specify the name of the array followed by square brackets which specify how many elements the main array has,
+    - followed by another set of square brackets which indicates how many elements the sub-arrays have:
+    - `string array2D[2][4];`
+    ```cpp
+    // 2D Array :
+    string array2D[2][4] = {
+        { "A", "B", "C", "D" },
+        { "E", "F", "G", "H" }
+    };
+
+    // 3D Array :
+    string array3D[2][2][2] = {
+        {
+            { "A", "B" },
+            { "C", "D" }
+        },
+        {
+            { "E", "F" },
+            { "G", "H" }
+        }
+    };
+    ```
+
+- 2D array representation in memory :
+    <img src="images/2d_array_representation.jpg" alt="2D Array Representation" width="500">
+- In reality it's a single dimension array.
+- `int A[2][3]={2,4,6,3,5,7};    // works same as A[2][3]={{2,4,6},{3,5,7}};`
+
+#### Access the Elements of a Multi-Dimensional Array :
+- To access an element of a multi-dimensional array, specify an index number in each of the array's dimensions :
+    ```cpp
+    cout << array2D[0][2];  // Outputs "C"`
+    ```
+#### Change Elements in a Multi-Dimensional Array :
+- To change the value of an element, refer to the index number of the element in each of the dimensions 
+    ```cpp
+    array2D[0][0] = "Z";
+    cout << array2D[0][0];  // Now outputs "Z" instead of "A"
+    ```
+
+#### Loop Through a Multi-Dimensional Array :
+- To loop through a multi-dimensional array, we need one loop for each of the array's dimensions :
+    ```cpp
+    // 2D Array :
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << array2D[i][j] << "\n";
+        }
+    }
+
+    // 3D Array :
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            for (int k = 0; k < 2; k++) {
+                cout << array3D[i][j][k] << "\n";
+            }
+        }
+    }
+    ```
+
+#### Why we need Multi-Dimensional Arrays?
+- Multi-dimensional arrays are great at representing grids.
+- Spatial Representation: In computer graphics, 2D and 3D arrays are commonly used to represent images and three-dimensional spaces, respectively. Each element in the array corresponds to a pixel.
+
+### Using Reference in Array
+
+- **Reference** : Giving another name to same value
+    - `int &x = y;   //  x is a reference to the variable y;`
+
+    ```cpp
+    // reference_in_array.cpp
+
+    int array[5] = {1, 2, 3, 4, 5};
+
+    for (int i : array) {
+        ++i;    // will not change original value of array
+    }
+    for (int i : array) {
+        cout << i << " ";   // output : 1 2 3 4 5
+    }
+
+    cout << endl;
+
+    for (int &i : array) {  // using Reference : Giving another name to same value
+        ++i;    // array value will also get modify
+    }
+    for (int i : array) {
+        cout << i << " ";   // output : 2 3 4 5 6
+    }
+
+    // Using for each and reference in 2d array
+
+    string array2D[2][3] = { {"00", "01", "02"}, {"10", "11", "12"} };
+
+    for (auto &i : array2D) {
+        for (auto &j : i) {
+            cout << j << " ";   // output : 00 01 02, 10 11 12
+        }
+        cout << endl;
+    }
+
+    ```
+- `for(int &x : array)`: This is a range-based for loop in C++.
+- The loop variable i is declared as a reference to an integer (`int &i`), meaning that `i` will refer directly to the actual elements in the container `array`, rather than creating a copy of them.
+- `++i;`: This line increments the value referred to by `i`. Since `i` is a reference to the elements in the container `array`, this operation modifies the original values in the array.
+- We can use `auto` instead of `int` if we don't know data type. This will not work on pointer. Work only on collection of values, like vector, list, et
 
 ## Standard Template Library (STL) Arrays:
 
@@ -80,3 +190,9 @@ for (int i : anotherArray) {
     int value = stdArray[2];    // Retrieves the element at index 2
     int value2 = stlArray.at(0);    // Retrieves the element at index 0
     ```
+
+
+
+### Extras :
+
+- We can use exit(0); for termination of program.
