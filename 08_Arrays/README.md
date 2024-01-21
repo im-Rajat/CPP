@@ -90,7 +90,7 @@ for (int i : anotherArray) {
     };
     ```
 
-- 2D array representation in memory :
+- 2D array representation in memory :  
     <img src="images/2d_array_representation.jpg" alt="2D Array Representation" width="500">
 - In reality it's a single dimension array.
 - `int A[2][3]={2,4,6,3,5,7};    // works same as A[2][3]={{2,4,6},{3,5,7}};`
