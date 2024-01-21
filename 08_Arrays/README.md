@@ -8,6 +8,7 @@
     - specify the number of elements it should store:
 - `string cars[4];`
 - `int myNum[3] = {10, 20, 30};`
+- Can't declare array as `int a[];  // error`
 
 ### Omit Array Size 
 - We don't have to specify the size of the array.
