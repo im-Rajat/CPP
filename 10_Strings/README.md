@@ -1,6 +1,6 @@
 # Strings
 
-- We can char array which is available in c & c++.
+- We have char array which is available in c & c++.
 - We have class String which is only available in c++.
 - Let's first understand char array:
 
@@ -64,4 +64,99 @@
     cin.getline(data2, 20);
     cout << "data2 = " << data2 << endl;    // I am fine
     ```
+- This will also work:
+    ```cpp
+    char *s;
+    cout<<"Enter a String";
+    cin>>s;
+    cin.getline(s, 100);
+    ```
 
+### Char Array/String built-in functions
+
+- Need to include `#include <ctring>` or `#include <string.h>`
+- `strlen(s)`   // for string length
+- `strcat(destination, source)` // for concatenate strings, source string will added in destination string, destination will become destination + source.
+- `strncat(destination, source, number of letter of second string to concatenate with first)`   // Concatenate with limited characters
+- `strcpy(destination, source)` // copy source string to destination
+- `strncpy(destination,source, length)` // Copy string with limited characters
+- `strstr(main, sub)`   // to find substring, will crash if not found. Use if(strstr(s1,s2)!=NULL) {…}
+- `strchr(main, char)`; // find occurrence of a character in string
+- `strcmp(str1, str2)` ;    // compare 2 string, return -ve, 0, +ve
+- `strtol(str1, NULL, 10)`  // string to long int, where 10 (decimal) is base
+- `strtof(str1, NULL)`  // string to float
+- `strtok(str1, "=;")`  // to tokenize a string, where =; is token/delimiter.
+- Function explanation with example:
+    ```cpp
+    // char_functions.cpp
+
+    // strlen: String Length
+    char str[] = "Hello";
+    int length = strlen(str);
+    cout << "Length of string: " << length << endl;     // 5
+
+    // strcat: Concatenate strings
+    char source[] = " World";
+    char destination[20] = "Hello";
+    strcat(destination, source);
+    cout << "Concatenated string: " << destination << endl;     // Hello World
+
+    // strncat: Concatenate with limited characters
+    char source2[] = " Universe";
+    strncat(destination, source2, 4); // Concatenate only the first 4 characters of source2
+    cout << "Partially concatenated string: " << destination << endl;   // Hello World Uni
+
+    // strcpy: Copy string
+    char source3[] = "Copy";
+    char destination2[20];
+    strcpy(destination2, source3);
+    cout << "Copied string: " << destination2 << endl;      // Copy
+
+    // strncpy: Copy string with limited characters
+    char source4[] = "Partial Copy";
+    char destination3[20];
+    strncpy(destination3, source4, 7); // Copy only the first 7 characters of source4
+    cout << "Partially copied string: " << destination3 << endl;    // Partial
+
+    // strstr: Find substring
+    char mainStr[] = "Hello World";
+    char subStr[] = "World";
+    if (strstr(mainStr, subStr) != NULL) {
+        cout << "Substring found!" << endl;     // Substring found!
+    } else {
+        cout << "Substring not found." << endl;
+    }
+
+    // strchr: Find character occurrence
+    char searchChar = 'o';
+    char* charPtr = strchr(mainStr, searchChar);
+    if (charPtr != NULL) {
+        cout << "Character found at position: " << (charPtr - mainStr) << endl;     // 4
+    } else {
+        cout << "Character not found." << endl;
+    }
+
+    // strcmp: Compare strings
+    char str1[] = "Hello";
+    char str2[] = "World";
+    int comparisonResult = strcmp(str1, str2);
+    cout << "Comparison result: " << comparisonResult << endl;      // -1
+
+    // strtol: String to long int
+    char str3[] = "123";
+    long intResult = strtol(str3, NULL, 10);
+    cout << "String to long int: " << intResult << endl;    // 123
+
+    // strtof: String to float
+    char str4[] = "3.14";
+    float floatResult = strtof(str4, NULL);
+    cout << "String to float: " << floatResult << endl;     // 3.14
+
+    // Example for strtok
+    char str5[] = "key1=value1;key2=value2";
+    char* token = strtok(str5, "=;");
+    while (token != NULL) {
+        cout << "Token: " << token << endl;     // Token: key1 
+        token = strtok(NULL, "=;");             // Token: value1 .....
+    }
+    ```
