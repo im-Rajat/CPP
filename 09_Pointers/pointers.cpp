@@ -26,6 +26,14 @@ int main() {
     *ptrFood = "Burger";    // Change the value of the pointer
     cout << "food = " << food << endl;   // Burger
 
+    cout << "sizeof(ptr) = " << sizeof(ptr) << endl;    // 4
+    cout << "sizeof(*ptr) = " << sizeof(*ptr) << endl;    // 4 (size of int datatype)
+
+    // Pointer size will remain same irrespective of datatype
+    char *ptrChar;
+    cout << "sizeof(ptrChar) = " << sizeof(ptrChar) << endl;    // 4
+    cout << "sizeof(*ptrChar) = " << sizeof(*ptrChar) << endl;    // 1 (size of char datatype)
+
     return 0;
 }
 
@@ -39,5 +47,6 @@ ptr = 0x62ff00
 *ptr = 10
 y = 10
 food = Burger
+sizeof(ptr) = 4
 
 */
