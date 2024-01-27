@@ -75,6 +75,24 @@
 ### Char Array/String built-in functions
 
 - Need to include `#include <ctring>` or `#include <string.h>`
+    - `'<cstring>'` is the C++ version of the C header `'<string.h>'`. It is part of the C++ Standard Library and contains the same functions as <string.h>, but they are encapsulated within the std namespace. So, when you use <cstring>, you should use the std namespace or include it explicitly:
+        ```cpp
+        #include <cstring>
+
+        // Or use std::function
+        std::size_t length = std::strlen("Hello");
+        ```
+    - `'<string.h>'` is the C version of the header and is typically used in C programs. If you are writing C++ code, it is generally recommended to use `'<cstring>'` for better compatibility with C++ and to take advantage of the std namespace.
+        ```cpp
+        #include <string.h>
+
+        const char *source = "Hello, World!";
+        char destination[20];
+
+        strcpy(destination, source);
+        printf("Copied string: %s\n", destination);
+        ```
+        
 - `strlen(s)`   // for string length
     ```cpp
     // strlen: String Length
@@ -181,3 +199,154 @@
 
 ### Class String
 
+- How to define a string:
+    - `string str`
+- Declaration and Initialization of String:
+    - `std::string newStr = "You are learning C++";`
+- How to input a string:
+    - `cin >> std`  // take only one word
+    - `getline(cin, str)`   // can take sentence
+
+### String Class Functions / Operations on Strings
+
+#### Input Functions:
+- `getline(cin, str)` : store a stream of characters as entered by the user
+- `push_back('c')` : input a character at the end of the string
+- `pop_back()` : delete the last character from the string.
+    ```cpp
+    string str1;
+    cout << "Enter str1: ";
+    getline(cin, str1);     // Taking string input
+    cout << "str1 = " << str1 << endl;
+
+    str1.push_back('r');    // Inserting a character
+    cout << "str1.push_back('r') = " << str1 << endl;
+
+    str1.pop_back();        // Deleting a character
+    cout << "str1.pop_back() = " << str1 << endl;
+    ```
+
+#### String Length:
+- `str.size()` : Returns the size of the string
+- `str.length()` : Alias of size, returns the size of the string
+- `str.capacity()` : Returns the capacity allocated to a string by the compiler
+- `str.reserve(100)` : Changes the capacity of the string
+- `shrink_to_fit()` : reduces the capacity of the string object to fit its actual length
+
+    ```cpp
+    cout << "str1.size() = " << str1.size() << endl;
+    cout << "str1.length() = " << str1.length() << endl;
+    cout << "str1.capacity() = " << str1.capacity() << endl;
+    str1.resize(100);
+    cout << "str1.capacity() after str1.resize(100); = " << str1.capacity() << endl;
+    str1.shrink_to_fit();
+    cout << "str1.capacity() after str1.shrink_to_fit() = " << str1.capacity() << endl;
+    ```
+
+#### String class provides a variety of member functions:
+
+- **Constructor:**
+    ```cpp
+    std::string str1;                   // Default constructor
+    std::string str2("Hello, World!");  // Constructor with a C-string
+    std::string str3(5, 'A');           // Constructor with repetition 
+    ```
+- **Assignment:**
+    ```cpp
+    std::string str4 = "C++";
+    std::string str5;
+    str5 = str4;  // Assignment
+    ```
+- **Concatenation:**
+    ```cpp
+    std::string str6 = "Hello, ";
+    std::string str7 = "World!";
+    std::string result = str6 + str7;  // Concatenation
+    ```
+- **Accessing Characters:**
+    ```cpp
+    std::string str9 = "Example";
+    char firstChar = str9[0];    // Accessing first character
+    char lastChar = str9.back();  // Accessing last character
+    ```
+- **Substring:**
+    ```cpp
+    std::string str10 = "Programming";
+    std::string subStr = str10.substr(3, 5);  // Get substring from position 3 with length 5
+    ```
+- **Find:**
+    ```cpp
+    std::string str11 = "C++ is powerful";
+    size_t pos = str11.find("power");  // Find the position of the substring "power"
+    ```
+- **Replace:**
+    ```cpp
+    std::string str12 = "C++ is great";
+    str12.replace(7, 5, "awesome");  // Replace "great" with "awesome"
+    ```
+- **Erase:**
+    ```cpp
+    std::string str13 = "Remove this";
+    str13.erase(7, 5);  // Erase 5 characters starting from position 7
+    ```
+- **Compare:**
+    - similar to strcmp, compare string in dictionary order and return result as -ve, 0, +ve.
+    ```cpp
+    std::string str14 = "apple";
+    std::string str15 = "orange";
+    int result = str14.compare(str15);  // Compare strings lexicographically
+    ```
+- **There are more functions in string class:**
+    - `s.max_size()`
+    - `s.clear()`
+    - `s.empty()`
+    - `s.append( “Bye")`
+    - `s.insert(3,"kk" )`
+    - `s.insert(3, "Apple", 2)`
+    - `s.replace(3,5,"aa" )`    // 3 is starting index, 4 is length from starting index to replace with aa
+    - `s1.swap(s2)` // swap 2 strings
+    - `s.copy(char des[])`  // copy string char array des[]
+    - `s.find(str) or char` // to find occurrence of string or char and return index
+    - `s.rfind(str`)        // to find occurrence of string or char from end/right hand side and return index. If return index is greater than length of string it means it didn't find the string or char
+    - `s.find_first_of('a', 3)` // a character to find from last side and start finding from index 3 onwards
+    - `s.find_last_of('le')`    // search from right hand side, will return index of any of character found first
+
+
+#### Some operators defined upon string class:
+- `str.at(5)`   // similar to `str[5]`
+- `str.front()` // return first character of string
+- `str.back()`  // return last character of string
+
+#### Iterators
+- `string::iterator`  // iterator object will work like a pointer to a character in a string (can read and modify)
+- `begin()`
+- `end()`
+- `reverse_iterator`
+- `rbegin()`
+- `rend()`
+- Example:
+    ```cpp
+   // Part 1: Convert each character to uppercase using iterators
+    string str1 = "today";
+    string::iterator it1;
+    for (it1 = str1.begin(); it1 != str1.end(); it1++) {
+        *it1 = *it1 - 32; // Convert to uppercase
+    }
+    cout << str1 << endl;  // Output: TODAY
+
+    // Part 2: Print the reversed string
+    string str2 = "today";
+    string::reverse_iterator it2;
+    for (it2 = str2.rbegin(); it2 != str2.rend(); it2++) {
+        cout << *it2;
+    }
+    cout << endl;  // Output: yadot
+
+    // Part 3: Convert each character to uppercase using array indexing
+    string str3 = "today";
+    for (int i = 0; str3[i] != '\0'; i++) {
+        cout << str3[i];  // Output: today
+        str3[i] = str3[i] - 32; // Convert to uppercase
+    }
+    cout << endl << str3;  // Output: TODAY
+    ```
