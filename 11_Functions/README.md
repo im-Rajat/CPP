@@ -67,9 +67,11 @@
 - Instead of having different functions for different data type, we can use template T.
 
 ### Parameter Calling/Passing Methods
-- Pass by can be called as call by, both are same
-- **Call by Value** 
-    - Value of variables are copied and different space is allocated to them
+
+Pass by can be called as call by, both are same
+
+**Call by Value:**
+- Value of variables are copied and different space is allocated to them
     ```cpp
     void swap1(int a, int b) {   // a and b have their separate memory
         int temp = a;
@@ -81,8 +83,8 @@
     swap1(x, y);
     cout << "x: " << x << " y: " << y << endl;  // x: 10 y: 20 (main variables didn't swap)
     ```
-- **Call by Address**
-    - We pass the addresses of the variables.
+**Call by Address:**
+- We pass the addresses of the variables.
     ```cpp
     void swap2(int *a, int *b) {
         int temp = *a;  // read the value of a from address pointed by 'a'
@@ -94,14 +96,14 @@
     swap2(&x, &y);
     cout << "x: " << x << " y: " << y << endl;  // x: 20 y: 10
     ```
-- **Call by Reference**
-    - Only available in c++ not in c.
-    - References are just a nickname/alias of a variable.
-    - Syntax is very similar to call by value. It just we can `&` in variable in function definition. But it worked similar to call by address as it can modify the value of actual parameters.
-    - Whenever we use call by reference mechanism it will not generate separate piece of machine code. It will copy the machine code at the place of function call. The function will not be a separate function, it will part of main function only.
-    - When use call by reference avoid using loops (may get warnings).
-    - **If the piece of machine code of a function is copied at the place of function call like below then such functions are called as inline functions in C++.**
-    - **When we use a call by reference function automatically becomes inline function.**
+**Call by Reference:**
+- Only available in c++ not in c.
+- References are just a nickname/alias of a variable.
+- Syntax is very similar to call by value. It just we can `&` in variable in function definition. But it worked similar to call by address as it can modify the value of actual parameters.
+- Whenever we use call by reference mechanism it will not generate separate piece of machine code. It will copy the machine code at the place of function call. The function will not be a separate function, it will part of main function only.
+- When use call by reference avoid using loops (may get warnings).
+- **If the piece of machine code of a function is copied at the place of function call like below then such functions are called as inline functions in C++.**
+- **When we use a call by reference function automatically becomes inline function.**
     ```cpp
     void swap3(int &a, int &b) {
         int temp = a;
@@ -179,10 +181,9 @@
 - Think of a static variable imagine that they are global. But their scope visibility is limited to a function.
 - Static variables are not available in Java.
 
-- **Example of Global, Local & Static Variables:**
+**Example of Global, Local & Static Variables:** 
+- `global_local_static_variables.cpp`
     ```cpp
-    // global_local_static_variables.cpp
-
     int globalVariable = 25;    // Goes to the Initialized Data Section
     int variable;        // Goes to the Uninitialized Data Section/BSS Section
 
@@ -214,3 +215,68 @@
     }
     ```
 
+### Recursive Function
+
+- A function calling itself is called as recursion.
+- Have a base condition to terminate the recursive calls.
+    ```cpp
+    // recursive_functions.cpp
+
+    void recursiveFunc1(int num) {
+        if (num >= 0) {
+            cout << num << " ";
+            recursiveFunc1(num - 1);
+        }
+    }
+
+    void recursiveFunc2(int num) {
+        if (num >= 0) {
+            recursiveFunc2(num - 1);
+            cout << num << " ";
+        }
+    }
+
+    int main() {
+        recursiveFunc1(5);      // 5 4 3 2 1 0
+        cout << endl;
+        recursiveFunc2(5);      // 0 1 2 3 4 5
+
+        return 0;
+    }
+    ```
+
+### Function Pointer / Pointer to a Function
+
+- When we declared a pointer to a function it must be inside the brackets otherwise it will not be a pointer to a function. It must be enclosed in a bracket
+- Declaration of pointer: `void (*fp)();`
+- Initialization of pointer: `fp = functionName`
+- Function call: `(*fp)();`
+- Example:
+    ```cpp
+    void display() {
+        cout << "Hello" << endl;
+    }
+
+    int max(int a, int b) {
+        return a > b ? a : b;
+    }
+
+    int min(int a, int b) {
+        return a < b ? a : b;
+    }
+
+    int main() {
+        void (*displayPtr)();       // Declaration of pointer
+        displayPtr = display;       // Initialization of pointer
+        (*displayPtr)();            // Function call
+
+        int (*functionPointer)(int, int);
+        functionPointer = max;      // Assigning address of 'max' to the pointer
+        cout << "Maximum of 5 and 8 is: " << functionPointer(5, 8) << endl;   // Calling through the pointer
+
+        functionPointer = min;      // Assigning address of 'min' to the pointer
+        cout << "Maximum of 5 and 8 is: " << functionPointer(5, 8) << endl;   // Calling through the pointer
+
+        return 0;
+    }
+    ```
