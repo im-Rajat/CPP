@@ -283,7 +283,7 @@ Pass by can be called as call by, both are same
     }
     ```
 > If a function is not returning any value then its return type should be void.
-> 
+
 > Call by value will pass just values of actual parameters, they cannot be modified.
-> 
+
 > Which type of functions can take datatype as parameters? - Template
