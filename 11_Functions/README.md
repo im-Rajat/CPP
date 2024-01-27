@@ -148,3 +148,69 @@
     ref(x) = 25;
     cout << "x: " << x << endl;     // x: 25
     ```
+
+### Global, Local and Static Variables
+
+**Global Variables:**
+- Declaration: Declared outside of any function or block, typically at the beginning of a C++ file or in a header file.
+- Scope: Global variables have global scope, meaning they can be accessed from any part of the program, including functions and code blocks.
+- Lifetime: Global variables exist for the entire duration of the program's execution.
+- Initialization: They are automatically initialized to zero if no explicit initialization is provided.
+- Storage: Stored in a different section of memory, typically in the data section or initialized data section.
+    - Small piece of memory as belonging to the data section only, which is meant for keeping global variables. So we should look at this and the initial size zero.
+- We can use scope resolution `::` to access global variable if we have same name of local and global variable.
+
+**Local Variables:**
+- Declaration: Local variables are declared within a specific function, block, or scope.
+- Scope: They are limited to the block or function in which they are declared and can't be accessed from outside that scope.
+- Lifetime: Local variables exist only during the execution of the block or function where they are defined.
+- Initialization: Local variables are not automatically initialized, and their initial values are undefined unless explicitly set.
+- Storage: They are stored on the stack memory.
+- Variables defined in `int main()` are also local.
+
+**Scoping Rule:**
+- C++ have block level scope.
+- If we define a variable with a same name that's already present inside a block using `{}` it will have it's separate memory and scope inside that block
+
+**Static Variables**
+- There are two points about **Global Variable**. It can be accessible everywhere, and it will remain always in the memory.
+- Static Variable will remain always in the memory but not accessible everywhere.
+- Static variables are the variables which remains always in the memory. Always in the memory. They are just like a global Variable. Only the difference between global and static variable is global variable can be access in any function, but static variable are accessible only inside the function in which they are declared.
+- Think of a static variable imagine that they are global. But their scope visibility is limited to a function.
+- Static variables are not available in Java.
+
+- **Example of Global, Local & Static Variables:**
+    ```cpp
+    // global_local_static_variables.cpp
+
+    int globalVariable = 25;    // Goes to the Initialized Data Section
+    int variable;        // Goes to the Uninitialized Data Section/BSS Section
+
+    void staticFunc() {
+        static int num = 10;     // value of num will set to 10 only on first function call
+        num++;
+        cout << "num: " << num << endl;
+    }
+
+    int main() {
+
+        int localVariable = 25;
+        {
+            int localVariable = 50;
+            cout << "localVariable inside block: " << localVariable << endl;    // 50
+        }
+        cout << "localVariable outside block: " << localVariable << endl;       // 25
+
+        int variable = 5;
+        cout << "variable inside main(): " << variable << endl;                 // 5
+        cout << "variable outside main(): " << ::variable << endl;              // 0
+
+        // Static variable example
+        staticFunc();       // num: 11
+        staticFunc();       // num: 12
+        staticFunc();       // num: 13
+        staticFunc();       // num: 14
+        return 0;
+    }
+    ```
+
