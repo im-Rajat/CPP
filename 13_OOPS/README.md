@@ -46,6 +46,8 @@
         - example: float Rectangle::perimeter() 
 
 ```cpp
+// class_object.cpp
+
 class Rectangle {       // Class Name is Rectangle
 public:                 // Access specifier
     float length;       // Attribute (float variable)
@@ -79,7 +81,7 @@ int main() {
 
 - Example:
     ```cpp
-    // Pointer to an Object in Heap
+    // Pointer to an Object in Heap  (Memory is still in Stack)
     Rectangle r2;
     Rectangle *ptr;
     ptr = &r1;
@@ -91,18 +93,10 @@ int main() {
 - We are using pointer in above example but memory is still in stack not in heap.
 - The dot operator `.` is used to access members (attributes or methods) of an object directly when you have an object instance.
 - The arrow operator `->` is used for accessing the members of an object using a pointer on an object. It is a shorthand notation for dereferencing the pointer and accessing the members.
-- Example:
+- Create object in Heap:
     ```cpp
-    // Pointer to an Object (Memory is still in Stack)
-    Rectangle r2;
-    Rectangle *ptr;
-    ptr = &r1;
-    ptr->length = 2;
-    ptr->breadth = 5;
-    cout << "Area: " << ptr->area() << endl;            // 10
-    cout <<"Perimeter: " << ptr->perimeter() << endl;   // 14
-
-    // Create object in Heap
+    // class_object.cpp
+    
     // Rectangle *ptr2;
     // ptr2 = new Rectangle;
     // Define in 1 line, both are same
