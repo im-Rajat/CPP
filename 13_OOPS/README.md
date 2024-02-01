@@ -116,7 +116,7 @@ int main() {
 - There is no name to the object but pointer is pointing onto that one.
 - Create object in Stack : `Rectangle r`;
 - Create object in Heap : `Rectangle *p = new Rectangle()`;
-- `Rectangle *ptr2 = new Rectangle` vs `Rectangle *ptr3 = new Rectangle`:
+- `Rectangle *ptr2 = new Rectangle` vs `Rectangle *ptr3 = new Rectangle()`:
     - If our class has a user-defined default constructor that initializes member variables or performs other necessary setup, using `new Rectangle();` ensures that the constructor is explicitly called during the object creation.
     - If our class has no user-defined default constructor, both forms are roughly equivalent.
     - It's a good practice to explicitly call the constructor for clarity and consistency.
