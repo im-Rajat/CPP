@@ -1,6 +1,6 @@
-# Namespace in CPP
+# Namespace in C++
 
-- A namespace that allows us to group related functions, classes, variables, and other declarations under a specific name.
+- A namespace allows us to group related functions, classes, variables, and other declarations under a specific name.
 - It is used to organize code and avoid name conflicts, especially in large projects or when integrating multiple libraries.
 
 ### Defining a Namespace
