@@ -1,0 +1,10 @@
+# Constructor
+
+- It's philosophically wrong when we create rectangle object, it's length and breadth were garbage/not define (we set letter).
+- While creating or buying any rectangle object we also tell what should be its length and breadth
+- So we want the length and breadth to be set at the time of construction of that object. So we should have a function which should be automatically called when this object is constructed so that it take these parameters and assign these values.
+- A constructor is a function which will have the same name as class name.
+- The constructor will not have any return type but it will have same name as class name exactly same.
+
+### Different types of Constructors
+
