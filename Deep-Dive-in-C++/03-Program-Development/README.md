@@ -1,95 +1,91 @@
 # Section 3: Program Development
 
 ## Programming Paradigm
-*Evolution of how we write code:*
+*Evolution of coding styles:*
 
-### 1. Monolithic Programming (Basic)
-* **Structure:** Everything is in a single block.
-* **Components:** Data and Instructions are mixed together.
-* **Drawback:** Hard to manage for large programs.
-
-### 2. Procedural / Modular (e.g., C Language)
-* **Structure:** Program is divided into **functions**.
-* **Flow:** `main()` calls `function1()`, `function2()`, etc.
-* **Focus:** Action-oriented.
-
-### 3. Object-Oriented (e.g., C++, Java)
-* **Structure:** Program is divided into **Classes**.
-* **Encapsulation:** Data and Functions are bundled together inside a class.
-* **Flow:** Objects are created in `main()`, and functions are called on those objects.
+| Paradigm | Structure | Characteristics |
+| :--- | :--- | :--- |
+| **Monolithic** | Single block | • Data and instructions are mixed.<br>• Hard to manage for large programs. |
+| **Procedural / Modular** | Divided into **Functions** | • Example: **C** Language.<br>• Action-oriented.<br>• `main()` calls `function1()`, `function2()`, etc. |
+| **Object-Oriented** | Divided into **Classes** | • Example: **C++**, **Java**.<br>• **Encapsulation**: Data and functions are bundled together.<br>• `main()` creates Objects and calls functions on them. |
 
 ---
 
 ## Flow Chart
-**Definition:** A graphical representation of a program's logic.
+**Definition:** A graphical representation of logic.
 
 ### Standard Symbols
 * **Oval:** Start / Stop
-* **Parallelogram:** Input / Output (Read/Print)
-* **Rectangle:** Process (Calculations, Assignments)
-* **Diamond:** Condition (True/False decisions)
-* **Arrows:** Flow direction
+* **Parallelogram:** Input / Output (Read / Print)
+* **Rectangle:** Process (Calculations)
+* **Diamond:** Condition (Decision `Yes/No`)
 
-### Example: Sum of Two Numbers
-*Based on your handwritten flowchart:*
-
+### 1. Sequential Logic (Sum of 2 Numbers)
 ```mermaid
 flowchart TD
     Start([Start]) --> Input[/"Print 'Enter 2 nos' <br> Read a, b"/]
-    Input --> Process[c = a + b]
+    Input --> Process["c = a + b"]
     Process --> Output[/"Print 'sum is', c"/]
     Output --> Stop([Stop])
 ````
 
-### Example: Conditional Logic
-
-*Based on your `if a > b` sketch:*
+### 2\. Conditional Logic (Check if a \> b)
 
 ```mermaid
 flowchart TD
-    Start([Start]) --> Read[/"Read a, b"/]
-    Read --> Condition{"if a > b"}
+    Start([Start]) --> Input[/"Read a, b"/]
+    Input --> Condition{"If a > b?"}
     Condition -- True --> PrintA[/"Print a"/]
     Condition -- False --> PrintB[/"Print b"/]
     PrintA --> Stop([Stop])
     PrintB --> Stop
 ```
 
+### 3\. Iterative Logic (Loop Example)
+
+```mermaid
+flowchart TD
+    Start([Start]) --> Init["i = 1"]
+    Init --> Print[/"Print i"/]
+    Print --> Inc["i = i + 1"]
+    Inc --> Check{"If i <= 10?"}
+    Check -- True --> Print
+    Check -- False --> Stop([Stop])
+```
+
 -----
 
-## Program Development and Execution
-
-**Steps to run a program:**
+## Steps for Program Development and Execution
 
 1.  **Editing:** Writing the code.
-2.  **Compiling:** Translating source code to machine code.
-3.  **Linking:** Connecting with Libraries (Header Files).
-4.  **Loading:** Bringing the program from the Hard Disk (HDD) to Main Memory (RAM).
-5.  **Execution:** CPU runs the instructions.
+2.  **Compiling:** Converting source code.
+3.  **Linking:** Linking Libraries (Header Files).
+4.  **Loading:** Bringing program from **Hard Disk** to **Main Memory**.
+5.  **Execution:** Running the program.
 
 -----
 
 ## Main Memory Architecture
 
-The Main Memory (RAM) is logically divided into 3 sections during execution:
+When a program runs, the **Main Memory (RAM)** is logically divided into 3 sections:
 
-1.  **Stack:** Stores all local variables and function calls.
-2.  **Heap:** Used for dynamic memory allocation.
-3.  **Code Section:** Stores the executable machine code.
+1.  **Stack:** Stores all variables and data (static allocation).
+2.  **Heap:** Used for **dynamic memory allocation**.
+3.  **Code Section:** Stores the Machine Code.
 
-### Memory Layout & Loading Process
+### Visualizing Memory Loading
 
-*Visualizing how a program moves from HDD to RAM:*
+*How code moves from HDD to RAM:*
 
 ```mermaid
 flowchart TD
-    %% Nodes
-    subgraph HDD_Storage ["Hard Disk Drive (HDD)"]
-        SourceFile["First.cpp <br> (Source Code)"]
-        ExeFile["First.exe <br> (Machine Code)"]
+    %% Definitions
+    subgraph HDD ["Hard Disk Drive (HDD)"]
+        Source["Source Code <br> (First.cpp)"]
+        Exe["Executable <br> (First.exe)"]
     end
 
-    subgraph Main_Memory ["Main Memory (RAM)"]
+    subgraph RAM ["Main Memory (RAM)"]
         direction BT
         CodeSec["Code Section <br> (Machine Code copied here)"]
         Heap["Heap <br> (Dynamic Memory)"]
@@ -97,16 +93,16 @@ flowchart TD
     end
 
     %% Styles
-    classDef hdd fill:#f9f9f9,stroke:#333,stroke-dasharray: 5 5;
-    classDef ram fill:#e1f5fe,stroke:#333;
+    classDef storage fill:#f9f9f9,stroke:#333;
+    classDef memory fill:#e3f2fd,stroke:#333;
 
-    HDD_Storage:::hdd
-    Main_Memory:::ram
+    HDD:::storage
+    RAM:::memory
 
-    %% Connections
-    SourceFile -->|Compiler| ExeFile
-    ExeFile -->|Loader| CodeSec
+    %% Flow
+    Source -->|Compiler| Exe
+    Exe -->|Loader copies to| CodeSec
     
-    %% Note: Linking stack to code purely for visual structure
+    %% Formatting helper to stack RAM sections visually
     CodeSec ~~~ Heap ~~~ Stack
 ```
