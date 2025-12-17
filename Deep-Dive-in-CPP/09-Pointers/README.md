@@ -30,8 +30,8 @@ graph TD
     end
     style x_node fill:#f9f,stroke:#333,stroke-width:2px
     style p_node fill:#bbf,stroke:#333,stroke-width:2px
-
 ```
+
 ---
 
 ## Why Pointers?
@@ -39,7 +39,6 @@ graph TD
 A program can only access the **Code section** and **Stack** directly. Pointers help it to access the **Heap section**. A pointer variable exists in the Stack, but the address it stores points to the Heap. Thus, it indirectly helps us access the Heap section.
 
 **Main Uses:**
-
 * To access Heap memory.
 * To access files using file pointers.
 * To access network connections.
@@ -73,7 +72,6 @@ graph LR
 ```
 
 ### Memory Leak
-
 When we create memory using `new` and point to it with a pointer `p`, if we subsequently set `p` to `NULL` without freeing the memory, we lose access to that Heap memory. This is a **Memory Leak**. Therefore, we must free the memory first.
 
 ```cpp
@@ -82,9 +80,7 @@ p = nullptr;   // Good practice
 ```
 
 ### Null Pointer
-
 A pointer pointing to nothing (valid address 0).
-
 * `p = NULL;` or `p = nullptr;`
 
 ---
@@ -92,7 +88,6 @@ A pointer pointing to nothing (valid address 0).
 ## Pointer Arithmetic
 
 Pointer arithmetic depends on the data type of the pointer.
-
 * `int` is usually 4 bytes. If `p` is an integer pointer (`int *p`), `p++` moves the address forward by 4 bytes.
 * `char` is 1 byte. If `p` is a char pointer, `p++` moves the address forward by 1 byte.
 
@@ -115,18 +110,13 @@ int d = q - p;   // Returns the distance (number of elements) between pointers
 
 ## Problems with Pointers
 
-1. **Uninitialized Pointer:**
-* Created a pointer `int *p;` and then assigned `*p = 25;` without `p` pointing to a valid address. This causes undefined behavior.
-
-
-2. **Memory Leak:**
-* Not deleting memory before setting the pointer to null.
-* Note: `NULL` = `0`. `nullptr` is recommended in modern C++ as it is type-safe.
-
-
-3. **Dangling Pointer:**
-* A pointer pointing to a location that does not exist or has been deleted/deallocated.
-
+1.  **Uninitialized Pointer:**
+    * Created a pointer `int *p;` and then assigned `*p = 25;` without `p` pointing to a valid address. This causes undefined behavior.
+2.  **Memory Leak:**
+    * Not deleting memory before setting the pointer to null.
+    * Note: `NULL` = `0`. `nullptr` is recommended in modern C++ as it is type-safe.
+3.  **Dangling Pointer:**
+    * A pointer pointing to a location that does not exist or has been deleted/deallocated.
 
 **Dangling Pointer Example:**
 
@@ -152,15 +142,12 @@ int &y = x; // Reference declaration
 * A Reference is nothing but an **alias/nickname** of a variable.
 * References do **not** consume extra memory (conceptually, they share the memory of the original variable).
 * **Rules:**
-1. Declaration of a reference variable requires an initializer immediately.
-* `int &y = x;` (Correct)
-* `int &y;` (Error: not possible)
-
-
-2. We cannot change the reference to refer to another variable later.
-* If `int &y = x;` is done, `y` is locked to `x`.
-* Writing `y = a;` will assign the **value** of `a` to `x` (via `y`), it will not make `y` reference `a`.
-
+    1.  Declaration of a reference variable requires an initializer immediately.
+        * `int &y = x;` (Correct)
+        * `int &y;` (Error: not possible)
+    2.  We cannot change the reference to refer to another variable later.
+        * If `int &y = x;` is done, `y` is locked to `x`.
+        * Writing `y = a;` will assign the **value** of `a` to `x` (via `y`), it will not make `y` reference `a`.
 
 **Reference Visualization:**
 
@@ -177,12 +164,10 @@ graph TD
 ## Additional Examples & Notes
 
 ### 1. Pointer Size
-
 * The size of a pointer variable is generally independent of its data type.
 * `int *p1`, `float *p2`, `char *p3` — all take **8 bytes** in modern 64-bit compilers (or 4 bytes in 32-bit).
 
 ### 2. Negative Indexing
-
 ```cpp
 int A[] = {2, 4, 6, 8, 10, 12};
 int *p = &A[3];   // p points to index 3 (Value 8)
@@ -194,7 +179,6 @@ cout << p[-2];
 ```
 
 ### 3. Reference Logic
-
 ```cpp
 int x = 10;
 int &y = x;   // y is alias of x
@@ -203,7 +187,6 @@ cout << x;    // Since y changed to 20, x is also 20.
 ```
 
 ### 4. Reference to a Pointer
-
 ```cpp
 int x = 10;
 int *y = &x;  // y is a pointer to x
