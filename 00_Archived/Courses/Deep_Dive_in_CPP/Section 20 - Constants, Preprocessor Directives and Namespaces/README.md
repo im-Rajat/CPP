@@ -1,1 +1,0 @@
-# Section 20 - Constants, Preprocessor Directives and Namespaces

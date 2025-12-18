@@ -1,1 +1,0 @@
-# Section 21 - Destructor and Virtual Destructors

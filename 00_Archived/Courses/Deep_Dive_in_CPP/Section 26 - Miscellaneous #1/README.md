@@ -1,1 +1,0 @@
-# Section 26 - Miscellaneous #1

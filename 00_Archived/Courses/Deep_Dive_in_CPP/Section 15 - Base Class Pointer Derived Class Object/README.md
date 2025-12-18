@@ -1,1 +1,0 @@
-# Section 15 - Base Class Pointer Derived Class Object

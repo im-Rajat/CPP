@@ -1,1 +1,0 @@
-# Section 22 - IO Streams
